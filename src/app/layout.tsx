@@ -12,10 +12,48 @@ const sans = DM_Sans({
   variable: '--font-sans',
 })
 
+const SITE_URL = 'https://vidriosjl.cl'
+const TITLE = 'VidriosJL — Cambio de parabrisas a domicilio en Santiago'
+const DESCRIPTION =
+  'Cambio de parabrisas, lunetas y vidrios automotrices a domicilio en Santiago y alrededores. Sin taller, sin trámites: cotiza por WhatsApp en segundos.'
+
 export const metadata: Metadata = {
-  title: 'VidriosJL — Cambio de parabrisas a domicilio en Santiago',
-  description:
-    'Cambio de parabrisas, lunetas y vidrios automotrices a domicilio en Santiago y alrededores. Cotiza por WhatsApp en segundos.',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: TITLE,
+    template: '%s · VidriosJL',
+  },
+  description: DESCRIPTION,
+  keywords: [
+    'cambio de parabrisas',
+    'parabrisas a domicilio',
+    'vidrios automotrices Santiago',
+    'cambio de luneta',
+    'vidrio de auto trizado',
+    'VidriosJL',
+  ],
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'es_CL',
+    url: SITE_URL,
+    siteName: 'VidriosJL',
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630, alt: 'VidriosJL' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ['/opengraph-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({

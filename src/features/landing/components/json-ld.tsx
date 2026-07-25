@@ -1,0 +1,63 @@
+import { PREGUNTAS } from '../lib/data'
+
+const SITE_URL = 'https://vidriosjl.cl'
+
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoRepair',
+  name: 'VidriosJL',
+  description:
+    'Cambio de parabrisas, lunetas y vidrios automotrices a domicilio en Santiago y alrededores.',
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.svg`,
+  image: `${SITE_URL}/opengraph-image.png`,
+  telephone: '+56956709205',
+  priceRange: '$$',
+  areaServed: {
+    '@type': 'City',
+    name: 'Santiago de Chile',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '17:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday'],
+      opens: '09:00',
+      closes: '13:00',
+    },
+  ],
+  sameAs: ['https://instagram.com/vidriosjl.cl', 'https://facebook.com/vidriosjl'],
+}
+
+const faqPage = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: PREGUNTAS.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: a,
+    },
+  })),
+}
+
+export function JsonLd() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(business) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage) }}
+      />
+    </>
+  )
+}

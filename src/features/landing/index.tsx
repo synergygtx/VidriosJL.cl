@@ -5,6 +5,7 @@ import { Contacto } from './components/contacto'
 import { CtaFinal } from './components/cta-final'
 import { Faq } from './components/faq'
 import { Hero } from './components/hero'
+import { JsonLd } from './components/json-ld'
 import { Lightbox } from './components/lightbox'
 import { Navbar } from './components/navbar'
 import { PorQue } from './components/por-que'
@@ -17,6 +18,7 @@ import { LightboxProvider } from './lib/lightbox-context'
 export function LandingPage() {
   return (
     <LightboxProvider>
+      <JsonLd />
       <Navbar />
       <main>
         <Hero />

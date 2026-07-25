@@ -5,9 +5,11 @@ import Image from 'next/image'
 import { buildWhatsAppLink, QUICK_MESSAGE } from '../lib/whatsapp'
 import { SERVICIOS } from '../lib/data'
 import { useLightbox } from '../lib/lightbox-context'
+import { IconMenu, IconX } from './icons'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const { openServicio } = useLightbox()
 
@@ -26,6 +28,19 @@ export function Navbar() {
       window.removeEventListener('keydown', onKey)
     }
   }, [open])
+
+  useEffect(() => {
+    if (!mobileOpen) return
+    document.body.style.overflow = 'hidden'
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [mobileOpen])
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
@@ -82,15 +97,96 @@ export function Navbar() {
           </a>
         </nav>
 
-        <a
-          href={buildWhatsAppLink(QUICK_MESSAGE)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full bg-gold-metal px-4 py-2 text-sm font-semibold text-background transition-transform hover:scale-105 active:scale-95 sm:px-5"
-        >
-          Cotizar
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href={buildWhatsAppLink(QUICK_MESSAGE)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-gold-metal px-4 py-2 text-sm font-semibold text-background transition-transform hover:scale-105 active:scale-95 sm:px-5"
+          >
+            Cotizar
+          </a>
+
+          <button
+            onClick={() => setMobileOpen(true)}
+            aria-label="Abrir menú"
+            aria-expanded={mobileOpen}
+            className="flex h-10 w-10 items-center justify-center rounded-full text-foreground/90 transition-colors hover:text-brand md:hidden"
+          >
+            <IconMenu className="h-6 w-6" />
+          </button>
+        </div>
       </div>
+
+      {mobileOpen && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          <div
+            className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+            onClick={() => setMobileOpen(false)}
+          />
+          <div className="absolute inset-x-0 top-0 max-h-[90vh] overflow-y-auto rounded-b-3xl border-b border-border bg-surface pb-6 shadow-2xl">
+            <div className="flex h-16 items-center justify-between px-4">
+              <Image src="/logo.svg" alt="VidriosJL" width={140} height={56} className="h-9 w-auto" />
+              <button
+                onClick={() => setMobileOpen(false)}
+                aria-label="Cerrar menú"
+                className="flex h-10 w-10 items-center justify-center rounded-full text-foreground/90 transition-colors hover:text-brand"
+              >
+                <IconX className="h-6 w-6" />
+              </button>
+            </div>
+
+            <div className="px-4">
+              <p className="mb-2 mt-2 px-1 text-xs font-semibold uppercase tracking-wide text-muted">
+                Servicios
+              </p>
+              <div className="grid gap-1">
+                {SERVICIOS.map(({ id, nombre, detalle, icon: Icon }) => (
+                  <button
+                    key={id}
+                    onClick={() => {
+                      openServicio(id)
+                      setMobileOpen(false)
+                    }}
+                    className="flex w-full items-start gap-3 rounded-xl p-3 text-left transition-colors active:bg-background"
+                  >
+                    <Icon className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+                    <span>
+                      <span className="block text-sm font-medium text-foreground">{nombre}</span>
+                      <span className="block text-xs text-muted">{detalle}</span>
+                    </span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="my-3 border-t border-border" />
+
+              <a
+                href="#antes-despues"
+                onClick={() => setMobileOpen(false)}
+                className="block rounded-xl p-3 text-base font-medium text-foreground active:bg-background"
+              >
+                Trabajos reales
+              </a>
+              <a
+                href="#faq"
+                onClick={() => setMobileOpen(false)}
+                className="block rounded-xl p-3 text-base font-medium text-foreground active:bg-background"
+              >
+                Preguntas
+              </a>
+
+              <a
+                href="#cotizar"
+                onClick={() => setMobileOpen(false)}
+                className="mt-4 flex items-center justify-center rounded-full bg-gold-metal px-6 py-3.5 text-base font-semibold text-background"
+              >
+                Cotizar por WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
