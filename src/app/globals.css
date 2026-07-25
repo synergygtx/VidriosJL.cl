@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 4%;
+  --surface: 0 0% 8%;
+  --foreground: 0 0% 97%;
+  --muted: 0 0% 63%;
+  --border: 0 0% 18%;
+  --brand: 45 85% 68%;
+  --brand-dark: 42 75% 45%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+::selection {
+  background-color: hsl(var(--brand) / 0.35);
+  color: hsl(var(--foreground));
+}
+
+/* Oro metalizado — mismo degradado del logo */
+.bg-gold-metal {
+  background-image: linear-gradient(
+    120deg,
+    #8a6410 0%,
+    #d9ad3a 8%,
+    #fbeaa8 17%,
+    #e0b93f 26%,
+    #a8790f 36%,
+    #f7dc8a 48%,
+    #fff6d5 58%,
+    #d4a017 68%,
+    #9a6c0d 79%,
+    #eecb62 90%,
+    #c69320 100%
+  );
+  background-size: 200% 200%;
+}
+
+.text-gold-metal {
+  background-image: linear-gradient(
+    120deg,
+    #8a6410 0%,
+    #d9ad3a 8%,
+    #fbeaa8 17%,
+    #e0b93f 26%,
+    #a8790f 36%,
+    #f7dc8a 48%,
+    #fff6d5 58%,
+    #d4a017 68%,
+    #9a6c0d 79%,
+    #eecb62 90%,
+    #c69320 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.border-gold-metal {
+  border-image: linear-gradient(
+      120deg,
+      #8a6410,
+      #fbeaa8 25%,
+      #a8790f 50%,
+      #fff6d5 65%,
+      #9a6c0d 80%,
+      #eecb62 100%
+    )
+    1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
