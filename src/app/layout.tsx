@@ -42,13 +42,13 @@ export const metadata: Metadata = {
     siteName: 'VidriosJL',
     title: TITLE,
     description: DESCRIPTION,
-    images: [{ url: '/opengraph-image.png', width: 1200, height: 630, alt: 'VidriosJL' }],
+    images: [{ url: '/opengraph-image.jpg', width: 1200, height: 630, alt: 'VidriosJL' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: TITLE,
     description: DESCRIPTION,
-    images: ['/opengraph-image.png'],
+    images: ['/opengraph-image.jpg'],
   },
   robots: {
     index: true,
