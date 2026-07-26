@@ -51,7 +51,7 @@ export function Navbar() {
             alt="VidriosJL"
             width={140}
             height={56}
-            className="h-9 w-auto sm:h-10"
+            className="h-11 w-auto sm:h-14"
             priority
           />
         </a>
@@ -126,7 +126,7 @@ export function Navbar() {
           />
           <div className="absolute inset-x-0 top-0 max-h-[90vh] overflow-y-auto rounded-b-3xl border-b border-border bg-surface pb-6 shadow-2xl">
             <div className="flex h-16 items-center justify-between px-4">
-              <Image src="/logo.svg" alt="VidriosJL" width={140} height={56} className="h-9 w-auto" />
+              <Image src="/logo.svg" alt="VidriosJL" width={140} height={56} className="h-11 w-auto" />
               <button
                 onClick={() => setMobileOpen(false)}
                 aria-label="Cerrar menú"
