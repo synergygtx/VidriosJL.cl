@@ -22,13 +22,13 @@ export function LandingPage() {
       <Navbar />
       <main>
         <Hero />
+        <TrabajosRealizados />
         <QuoteForm />
         <Servicios />
         <PorQue />
         <Certificacion />
         <ComoFunciona />
         <AntesDespues />
-        <TrabajosRealizados />
         <Faq />
         <CtaFinal />
       </main>
