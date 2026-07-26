@@ -10,7 +10,7 @@ const business = {
     'Cambio de parabrisas, lunetas y vidrios automotrices a domicilio en Santiago y alrededores.',
   url: SITE_URL,
   logo: `${SITE_URL}/logo.svg`,
-  image: `${SITE_URL}/opengraph-image.png`,
+  image: `${SITE_URL}/opengraph-image.jpg`,
   telephone: '+56956709205',
   priceRange: '$$',
   areaServed: {

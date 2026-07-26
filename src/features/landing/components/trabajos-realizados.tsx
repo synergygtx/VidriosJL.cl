@@ -64,7 +64,7 @@ export function TrabajosRealizados() {
   }, [])
 
   return (
-    <section className="py-20 sm:py-24">
+    <section className="pt-10 pb-20 sm:pt-12 sm:pb-24">
       <div className="mx-auto flex max-w-6xl items-end justify-between gap-4 px-4 sm:px-6">
         <div className="max-w-xl">
           <h2 className="font-display text-3xl font-semibold sm:text-4xl">
