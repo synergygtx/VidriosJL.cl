@@ -6,10 +6,10 @@ export function buildWhatsAppLink(message: string) {
 
 export const QUICK_MESSAGE = [
   'Hola VidriosJL! Quiero cotizar el cambio de mi vidrio.',
-  'Marca:',
+  'Tipo de vidrio:',
   'Modelo:',
   'Año:',
-  'Patente:',
+  'Patente o N° Chacis:',
   '(Adjunto foto del vidrio)',
 ].join('\n')
 
