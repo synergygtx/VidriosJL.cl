@@ -27,5 +27,6 @@ export function buildQuoteMessage(fields: {
     `• Modelo: ${fields.modelo}`,
     `• Año: ${fields.anio}`,
     `• Dirección: ${fields.direccion}`,
+    '(Adjunto foto del vidrio)',
   ].join('\n')
 }
