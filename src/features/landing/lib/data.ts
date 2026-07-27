@@ -44,7 +44,7 @@ export const SERVICIOS = [
     nombre: 'Laterales',
     detalle: 'Vidrios laterales completos, instalados en el momento.',
     icon: IconLateral,
-    image: '/images/servicio-laterales.webp',
+    image: '/images/servicio-laterales.jpg',
     destacado: false,
   },
 ] as const

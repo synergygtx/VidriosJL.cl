@@ -14,19 +14,26 @@ export const QUICK_MESSAGE = [
 ].join('\n')
 
 export function buildQuoteMessage(fields: {
+  nombre: string
   tipo: string
   modelo: string
   anio: string
   comuna: string
-  conFoto?: boolean
+  direccion: string
+  cantidadFotos?: number
 }) {
   const lines = [
     'Hola VidriosJL! Quiero cotizar:',
+    `• Nombre: ${fields.nombre}`,
     `• Vidrio: ${fields.tipo}`,
     `• Modelo: ${fields.modelo}`,
     `• Año: ${fields.anio}`,
     `• Comuna: ${fields.comuna}`,
+    `• Dirección: ${fields.direccion}`,
   ]
-  if (fields.conFoto) lines.push('(Adjunto foto del vidrio)')
+  const cantidadFotos = fields.cantidadFotos ?? 0
+  if (cantidadFotos > 0) {
+    lines.push(cantidadFotos === 1 ? '(Adjunto foto del vidrio)' : `(Adjunto ${cantidadFotos} fotos del vidrio)`)
+  }
   return lines.join('\n')
 }

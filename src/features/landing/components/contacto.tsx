@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { IconPin, IconWhatsApp } from './icons'
+import { IconFacebook, IconInstagram, IconPin, IconWhatsApp } from './icons'
 import { buildWhatsAppLink, QUICK_MESSAGE } from '../lib/whatsapp'
 
 export function Contacto() {
@@ -8,7 +8,7 @@ export function Contacto() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Image src="/logo.svg" alt="VidriosJL" width={140} height={56} className="h-9 w-auto" />
+            <Image src="/logo.svg" alt="VidriosJL" width={140} height={46} className="h-9 w-auto" />
             <p className="mt-4 max-w-[22ch] text-sm text-muted">
               Cambio de parabrisas y vidrios automotrices a domicilio.
             </p>
@@ -44,17 +44,19 @@ export function Contacto() {
               href="https://instagram.com/vidriosjl.cl"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 block text-sm text-muted transition-colors hover:text-brand"
+              className="mt-3 flex items-center gap-2 text-sm text-muted transition-colors hover:text-brand"
             >
+              <IconInstagram className="h-4 w-4 shrink-0" />
               Instagram @vidriosjl.cl
             </a>
             <a
-              href="https://facebook.com/vidriosjl"
+              href="https://www.facebook.com/profile.php?id=61553306980953"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 block text-sm text-muted transition-colors hover:text-brand"
+              className="mt-2 flex items-center gap-2 text-sm text-muted transition-colors hover:text-brand"
             >
-              Facebook /vidriosjl
+              <IconFacebook className="h-4 w-4 shrink-0" />
+              Facebook
             </a>
           </div>
         </div>

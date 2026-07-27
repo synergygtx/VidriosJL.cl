@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section id="top" className="relative flex min-h-[92vh] items-end overflow-hidden pt-16">
       <Image
-        src="/images/hero-instalacion.webp"
+        src="/images/hero-instalacion.jpg"
         alt="Técnico de VidriosJL instalando un parabrisas a domicilio"
         fill
         priority
@@ -16,7 +16,7 @@ export function Hero() {
 
       <div className="relative mx-auto w-full max-w-6xl px-4 pb-8 pt-24 sm:px-6 sm:pb-10">
         <span className="inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/10 px-3 py-1 text-xs font-medium tracking-wide text-brand sm:text-sm">
-          100% a domicilio — no tenemos taller, vamos nosotros
+          100% a domicilio, te ahorramos el tiempo de ir a un taller, vamos nosotros!
         </span>
 
         <h1 className="mt-5 max-w-2xl font-display text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
@@ -42,7 +42,7 @@ export function Hero() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3.5 text-sm text-foreground/90 transition-colors hover:border-brand/50 hover:text-brand"
           >
-            Escribirnos directo
+            Escribenos directo
           </a>
         </div>
 

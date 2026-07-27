@@ -31,7 +31,10 @@ const business = {
       closes: '13:00',
     },
   ],
-  sameAs: ['https://instagram.com/vidriosjl.cl', 'https://facebook.com/vidriosjl'],
+  sameAs: [
+    'https://instagram.com/vidriosjl.cl',
+    'https://www.facebook.com/profile.php?id=61553306980953',
+  ],
 }
 
 const faqPage = {
