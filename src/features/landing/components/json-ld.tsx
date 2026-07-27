@@ -1,4 +1,4 @@
-import { PREGUNTAS } from '../lib/data'
+import { PREGUNTAS, RESENAS } from '../lib/data'
 
 const SITE_URL = 'https://vidriosjl.cl'
 
@@ -35,6 +35,17 @@ const business = {
     'https://instagram.com/vidriosjl.cl',
     'https://www.facebook.com/profile.php?id=61553306980953',
   ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: String(RESENAS.length),
+  },
+  review: RESENAS.map(({ nombre, texto }) => ({
+    '@type': 'Review',
+    author: { '@type': 'Person', name: nombre },
+    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+    reviewBody: texto,
+  })),
 }
 
 const faqPage = {

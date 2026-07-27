@@ -131,6 +131,14 @@ export function IconFacebook({ className }: IconProps) {
   )
 }
 
+export function IconStar({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2.8 14.7 9l6.8.6-5.2 4.5 1.6 6.6L12 17.3l-5.9 3.4 1.6-6.6L2.5 9.6 9.3 9 12 2.8Z" />
+    </svg>
+  )
+}
+
 export function IconWhatsApp({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">

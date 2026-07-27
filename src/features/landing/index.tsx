@@ -10,6 +10,7 @@ import { Lightbox } from './components/lightbox'
 import { Navbar } from './components/navbar'
 import { PorQue } from './components/por-que'
 import { QuoteForm } from './components/quote-form'
+import { Resenas } from './components/resenas'
 import { Servicios } from './components/servicios'
 import { TrabajosRealizados } from './components/trabajos-realizados'
 import { WhatsAppFloat } from './components/whatsapp-float'
@@ -29,6 +30,7 @@ export function LandingPage() {
         <Certificacion />
         <ComoFunciona />
         <AntesDespues />
+        <Resenas />
         <Faq />
         <CtaFinal />
       </main>

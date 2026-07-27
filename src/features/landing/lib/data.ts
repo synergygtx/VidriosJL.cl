@@ -49,6 +49,44 @@ export const SERVICIOS = [
   },
 ] as const
 
+export const RESENAS = [
+  {
+    nombre: 'Cristian A.',
+    texto:
+      'Excelente servicio de principio a fin. La comunicación fue clara y rápida, cumplieron con los horarios acordados y realizaron la instalación directamente en mi domicilio comercial. La calidad del parabrisas fue impecable, se nota la preocupación por el detalle y el profesionalismo.',
+    fecha: 'noviembre 2025',
+  },
+  {
+    nombre: 'Sujei C.',
+    texto:
+      'Excelente servicio, 10/10, super profesionales. Nos atendió Don Cleiver muy amable y simpático, nos cambió el parabrisas de la camioneta sin ningún problema para que pudiéramos salir a trabajar al otro día. Se agradece enormemente encontrar un servicio como el de ustedes.',
+    fecha: 'abril 2025',
+  },
+  {
+    nombre: 'Andrés S.',
+    texto:
+      'Excelente atención, muy rápidos y profesionales para trabajar, con buenas terminaciones y preocupados de que quede como corresponde. 100% recomendables.',
+    fecha: 'junio 2025',
+  },
+  {
+    nombre: 'Luis V.',
+    texto: 'Profesionalismo y puntualidad, preocupados de cada detalle. Muy buen trabajo.',
+    fecha: 'septiembre 2025',
+  },
+  {
+    nombre: 'Gerardo P.',
+    texto:
+      '100% recomendable, muy profesional y los precios muy accesibles. Cambio de parabrisas delantero a BMW 528i, año 2011.',
+    fecha: 'marzo 2024',
+  },
+  {
+    nombre: 'Tammy P.',
+    texto:
+      'Excelente trabajo, tuve suerte de encontrar a alguien profesional para arreglar mi auto. Muy recomendado.',
+    fecha: 'julio 2024',
+  },
+] as const
+
 export const PREGUNTAS = [
   {
     q: '¿Van a mi comuna?',
