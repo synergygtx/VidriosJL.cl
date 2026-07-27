@@ -19,19 +19,13 @@ export function buildQuoteMessage(fields: {
   modelo: string
   anio: string
   direccion: string
-  cantidadFotos?: number
 }) {
-  const lines = [
+  return [
     'Hola VidriosJL! Quiero cotizar:',
     `• Nombre: ${fields.nombre}`,
     `• Vidrio: ${fields.tipo}`,
     `• Modelo: ${fields.modelo}`,
     `• Año: ${fields.anio}`,
     `• Dirección: ${fields.direccion}`,
-  ]
-  const cantidadFotos = fields.cantidadFotos ?? 0
-  if (cantidadFotos > 0) {
-    lines.push(cantidadFotos === 1 ? '(Adjunto foto del vidrio)' : `(Adjunto ${cantidadFotos} fotos del vidrio)`)
-  }
-  return lines.join('\n')
+  ].join('\n')
 }

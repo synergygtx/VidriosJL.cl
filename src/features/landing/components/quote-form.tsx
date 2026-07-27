@@ -1,11 +1,9 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { buildQuoteMessage, buildWhatsAppLink } from '../lib/whatsapp'
-import { IconCamera, IconX } from './icons'
 
 const TIPOS = ['Parabrisas', 'Luneta', 'Aleta', 'Vidrio de puerta', 'Lateral']
-const MAX_FOTOS = 3
 
 export function QuoteForm() {
   const [nombre, setNombre] = useState('')
@@ -13,35 +11,10 @@ export function QuoteForm() {
   const [modelo, setModelo] = useState('')
   const [anio, setAnio] = useState('')
   const [direccion, setDireccion] = useState('')
-  const [fotos, setFotos] = useState<File[]>([])
-  const [previewUrls, setPreviewUrls] = useState<string[]>([])
-  const fileInputRef = useRef<HTMLInputElement>(null)
-
-  useEffect(() => {
-    const urls = fotos.map((f) => URL.createObjectURL(f))
-    setPreviewUrls(urls)
-    return () => urls.forEach((url) => URL.revokeObjectURL(url))
-  }, [fotos])
-
-  function addFoto(file: File | undefined) {
-    if (!file) return
-    setFotos((prev) => (prev.length >= MAX_FOTOS ? prev : [...prev, file]))
-  }
-
-  function removeFoto(index: number) {
-    setFotos((prev) => prev.filter((_, i) => i !== index))
-  }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    const message = buildQuoteMessage({
-      nombre,
-      tipo,
-      modelo,
-      anio,
-      direccion,
-      cantidadFotos: fotos.length,
-    })
+    const message = buildQuoteMessage({ nombre, tipo, modelo, anio, direccion })
 
     window.location.href = buildWhatsAppLink(message)
   }
@@ -130,77 +103,6 @@ export function QuoteForm() {
               placeholder="ej: Av. Siempre Viva 123, Ñuñoa"
               className="h-12 rounded-xl border border-border bg-background px-4 text-base text-foreground placeholder:text-muted focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
             />
-          </div>
-
-          <div className="flex flex-col gap-1.5 sm:col-span-2">
-            <span className="text-sm font-medium text-foreground/90">
-              Fotos del vidrio{' '}
-              <span className="font-normal text-muted">
-                (opcional, hasta {MAX_FOTOS})
-              </span>
-            </span>
-
-            <input
-              ref={fileInputRef}
-              id="foto"
-              type="file"
-              accept="image/*"
-              capture="environment"
-              onChange={(e) => {
-                addFoto(e.target.files?.[0])
-                if (fileInputRef.current) fileInputRef.current.value = ''
-              }}
-              className="hidden"
-            />
-
-            {previewUrls.length > 0 && (
-              <div className="flex flex-col gap-2">
-                {previewUrls.map((url, i) => (
-                  <div
-                    key={url}
-                    className="flex items-center gap-3 rounded-xl border border-border bg-background p-2.5"
-                  >
-                    <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={url}
-                        alt="Foto del vidrio a cotizar"
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                    <span className="flex-1 truncate text-sm text-muted">{fotos[i]?.name}</span>
-                    <button
-                      type="button"
-                      onClick={() => removeFoto(i)}
-                      aria-label="Quitar foto"
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface hover:text-foreground"
-                    >
-                      <IconX className="h-4 w-4" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {fotos.length < MAX_FOTOS && (
-              <button
-                type="button"
-                onClick={() => fileInputRef.current?.click()}
-                className="flex h-12 items-center justify-center gap-2 rounded-xl border border-dashed border-border text-sm text-muted transition-colors hover:border-brand/50 hover:text-brand"
-              >
-                <IconCamera className="h-5 w-5" />
-                {fotos.length === 0
-                  ? 'Adjuntar foto del vidrio'
-                  : `Agregar otra foto (${fotos.length}/${MAX_FOTOS})`}
-              </button>
-            )}
-
-            {fotos.length > 0 && (
-              <p className="text-xs text-muted">
-                Se abrirá el chat de WhatsApp de VidriosJL con tu mensaje listo —
-                adjunta las fotos ahí mismo antes de enviar.
-              </p>
-            )}
           </div>
 
           <button
