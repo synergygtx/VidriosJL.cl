@@ -10,7 +10,7 @@ export function Servicios() {
   return (
     <section id="servicios" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
       <div className="max-w-xl">
-        <h2 className="font-display text-3xl font-semibold sm:text-4xl">Cambiamos</h2>
+        <h2 className="font-display text-3xl font-semibold sm:text-4xl">Servicios</h2>
         <p className="mt-3 text-muted">
           Si es un vidrio del auto, lo cambiamos en tu casa o trabajo. Toca una foto para verla más grande.
         </p>
