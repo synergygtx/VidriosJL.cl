@@ -4,17 +4,17 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const FOTOS = [
-  { id: '4084', alt: 'Suzuki Swift — cambio de parabrisas' },
+  { id: '4083', alt: 'Audi A5 Cabriolet — cambio de parabrisas a domicilio' },
+  { id: '4093', alt: 'Porsche 911 — cambio de parabrisas a domicilio' },
+  { id: '4126', alt: 'Ford Raptor — cambio de parabrisas a domicilio' },
   { id: '4086', alt: 'Mitsubishi L200 — cambio de parabrisas' },
+  { id: '4133', alt: 'Mercedes-Benz A200 — trabajo terminado' },
   { id: '4087', alt: 'Toyota Hilux — cambio de parabrisas' },
+  { id: '4117', alt: 'Porsche 911 — trabajo terminado' },
   { id: '4091', alt: 'Toyota 4Runner — cambio de parabrisas a domicilio' },
-  { id: '4085', alt: 'Suzuki Swift — instalación en proceso' },
-  { id: '4092', alt: 'Porsche 911 — trabajo terminado' },
+  { id: '4129', alt: 'Chevrolet Tahoe — trabajo terminado' },
+  { id: '4092', alt: 'Porsche 911 — instalación en proceso' },
   { id: '4089', alt: 'BMW Serie 1 — trabajo terminado' },
-  { id: '4095', alt: 'Camioneta — trabajo terminado' },
-  { id: '4088', alt: 'Sellado y preparación profesional' },
-  { id: '4090', alt: 'Equipo listo para el trabajo' },
-  { id: '4094', alt: 'Vidrio antiguo retirado' },
 ]
 
 const AUTOPLAY_MS = 2800
