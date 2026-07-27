@@ -18,7 +18,6 @@ export function buildQuoteMessage(fields: {
   tipo: string
   modelo: string
   anio: string
-  comuna: string
   direccion: string
   cantidadFotos?: number
 }) {
@@ -28,7 +27,6 @@ export function buildQuoteMessage(fields: {
     `• Vidrio: ${fields.tipo}`,
     `• Modelo: ${fields.modelo}`,
     `• Año: ${fields.anio}`,
-    `• Comuna: ${fields.comuna}`,
     `• Dirección: ${fields.direccion}`,
   ]
   const cantidadFotos = fields.cantidadFotos ?? 0

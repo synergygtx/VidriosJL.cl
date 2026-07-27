@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section id="top" className="relative flex min-h-[92vh] items-end overflow-hidden pt-16">
       <Image
-        src="/images/hero-instalacion.webp"
+        src="/images/hero-instalacion.jpg"
         alt="Técnico de VidriosJL instalando un parabrisas a domicilio"
         fill
         priority

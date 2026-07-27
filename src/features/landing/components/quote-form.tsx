@@ -12,7 +12,6 @@ export function QuoteForm() {
   const [tipo, setTipo] = useState(TIPOS[0])
   const [modelo, setModelo] = useState('')
   const [anio, setAnio] = useState('')
-  const [comuna, setComuna] = useState('')
   const [direccion, setDireccion] = useState('')
   const [fotos, setFotos] = useState<File[]>([])
   const [previewUrls, setPreviewUrls] = useState<string[]>([])
@@ -33,26 +32,16 @@ export function QuoteForm() {
     setFotos((prev) => prev.filter((_, i) => i !== index))
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const message = buildQuoteMessage({
       nombre,
       tipo,
       modelo,
       anio,
-      comuna,
       direccion,
       cantidadFotos: fotos.length,
     })
-
-    if (fotos.length > 0 && navigator.share && navigator.canShare?.({ files: fotos })) {
-      try {
-        await navigator.share({ text: message, files: fotos })
-        return
-      } catch (err) {
-        if ((err as Error).name === 'AbortError') return
-      }
-    }
 
     window.open(buildWhatsAppLink(message), '_blank', 'noopener,noreferrer')
   }
@@ -129,21 +118,7 @@ export function QuoteForm() {
             />
           </div>
 
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="comuna" className="text-sm font-medium text-foreground/90">
-              Comuna
-            </label>
-            <input
-              id="comuna"
-              required
-              value={comuna}
-              onChange={(e) => setComuna(e.target.value)}
-              placeholder="ej: Ñuñoa"
-              className="h-12 rounded-xl border border-border bg-background px-4 text-base text-foreground placeholder:text-muted focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
-            />
-          </div>
-
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-1.5 sm:col-span-2">
             <label htmlFor="direccion" className="text-sm font-medium text-foreground/90">
               Dirección
             </label>
@@ -152,7 +127,7 @@ export function QuoteForm() {
               required
               value={direccion}
               onChange={(e) => setDireccion(e.target.value)}
-              placeholder="ej: Av. Siempre Viva 123"
+              placeholder="ej: Av. Siempre Viva 123, Ñuñoa"
               className="h-12 rounded-xl border border-border bg-background px-4 text-base text-foreground placeholder:text-muted focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
             />
           </div>
@@ -222,8 +197,8 @@ export function QuoteForm() {
 
             {fotos.length > 0 && (
               <p className="text-xs text-muted">
-                En el celular se comparte directo por WhatsApp con las fotos. En
-                computador, se abre WhatsApp con el mensaje y adjuntas las fotos ahí.
+                Se abrirá el chat de WhatsApp de VidriosJL con tu mensaje listo —
+                adjunta las fotos ahí mismo antes de enviar.
               </p>
             )}
           </div>
