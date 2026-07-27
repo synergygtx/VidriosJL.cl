@@ -9,11 +9,10 @@ const FOTOS = [
   { id: '4126', alt: 'Ford Raptor — cambio de parabrisas a domicilio' },
   { id: '4086', alt: 'Mitsubishi L200 — cambio de parabrisas' },
   { id: '4133', alt: 'Mercedes-Benz A200 — trabajo terminado' },
-  { id: '4087', alt: 'Toyota Hilux — cambio de parabrisas' },
+  { id: '4122', alt: 'Audi Q2 — cambio de parabrisas a domicilio' },
   { id: '4117', alt: 'Porsche 911 — trabajo terminado' },
   { id: '4091', alt: 'Toyota 4Runner — cambio de parabrisas a domicilio' },
   { id: '4129', alt: 'Chevrolet Tahoe — trabajo terminado' },
-  { id: '4092', alt: 'Porsche 911 — instalación en proceso' },
   { id: '4089', alt: 'BMW Serie 1 — trabajo terminado' },
 ]
 
