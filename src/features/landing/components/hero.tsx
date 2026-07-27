@@ -25,9 +25,9 @@ export function Hero() {
         </h1>
 
         <p className="mt-5 max-w-lg text-base text-muted sm:text-lg">
-          Vamos a tu casa o trabajo en Santiago y alrededores y cambiamos tu
-          parabrisas, luneta o vidrio lateral ahí mismo. Sin manejar con el
-          vidrio roto, sin pisar un taller.
+          Vamos a tu casa - Realizamos trabajos en todo Santiago y
+          alrededores, cambiamos tu parabrisas, luneta o vidrio lateral ahí
+          mismo. No conduzcas con tu vidrio roto.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
