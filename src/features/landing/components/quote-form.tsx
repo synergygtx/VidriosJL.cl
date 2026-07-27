@@ -43,7 +43,7 @@ export function QuoteForm() {
       cantidadFotos: fotos.length,
     })
 
-    window.open(buildWhatsAppLink(message), '_blank', 'noopener,noreferrer')
+    window.location.href = buildWhatsAppLink(message)
   }
 
   return (
@@ -57,6 +57,20 @@ export function QuoteForm() {
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="flex flex-col gap-1.5 sm:col-span-2">
+            <label htmlFor="nombre" className="text-sm font-medium text-foreground/90">
+              Nombre
+            </label>
+            <input
+              id="nombre"
+              required
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+              placeholder="ej: Juan Pérez"
+              className="h-12 rounded-xl border border-border bg-background px-4 text-base text-foreground placeholder:text-muted focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+            />
+          </div>
+
           <div className="flex flex-col gap-1.5 sm:col-span-2">
             <label htmlFor="tipo" className="text-sm font-medium text-foreground/90">
               Tipo de vidrio
@@ -73,20 +87,6 @@ export function QuoteForm() {
                 </option>
               ))}
             </select>
-          </div>
-
-          <div className="flex flex-col gap-1.5 sm:col-span-2">
-            <label htmlFor="nombre" className="text-sm font-medium text-foreground/90">
-              Nombre
-            </label>
-            <input
-              id="nombre"
-              required
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
-              placeholder="ej: Juan Pérez"
-              className="h-12 rounded-xl border border-border bg-background px-4 text-base text-foreground placeholder:text-muted focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
-            />
           </div>
 
           <div className="flex flex-col gap-1.5">
