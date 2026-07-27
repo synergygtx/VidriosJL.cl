@@ -32,9 +32,7 @@ elige VidriosJL sobre el primer resultado de Google. B es más urgente
 pero no comunica el diferenciador; C hace ambas cosas en 9 palabras.
 
 ### Subheadline
-"Vamos a tu casa o trabajo en Santiago y alrededores (hasta 2 horas) y
-cambiamos tu parabrisas, luneta o vidrio lateral ahí mismo. Sin manejar
-con el vidrio roto, sin pisar un taller."
+"Vamos a tu casa - Realizamos trabajos en todo Santiago y alrededores, cambiamos tu parabrisas, luneta o vidrio lateral ahí mismo. No conduzcas con tu vidrio roto."
 
 ### CTA Button
 "Cotizar por WhatsApp" *(definido en el brief — se mantiene tal cual)*
@@ -60,7 +58,7 @@ prolijo y lo respaldamos con garantía: si filtra, volvemos."
 
 ## Servicios
 
-**Título de sección:** "Cambiamos"
+**Título de sección:** "Servicios"
 
 1. **Parabrisas** — el servicio más pedido, mismo día que agendas.
 2. **Lunetas**
