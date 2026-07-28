@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { trackWhatsAppClick } from '@/shared/lib/analytics'
 import { buildQuoteMessage, buildWhatsAppLink } from '../lib/whatsapp'
 import { IconCamera, IconX } from './icons'
 
@@ -32,12 +33,14 @@ export function QuoteForm() {
     if (foto && navigator.share && navigator.canShare?.({ files: [foto] })) {
       try {
         await navigator.share({ text: message, files: [foto] })
+        trackWhatsAppClick('formulario')
         return
       } catch (err) {
         if ((err as Error).name === 'AbortError') return
       }
     }
 
+    trackWhatsAppClick('formulario')
     window.open(buildWhatsAppLink(message), '_blank', 'noopener,noreferrer')
   }
 

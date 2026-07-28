@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { buildWhatsAppLink, QUICK_MESSAGE } from '../lib/whatsapp'
+import { WhatsAppLink } from './whatsapp-link'
+import { QUICK_MESSAGE } from '../lib/whatsapp'
 
 export function Hero() {
   return (
@@ -36,14 +37,13 @@ export function Hero() {
           >
             Cotizar por WhatsApp
           </a>
-          <a
-            href={buildWhatsAppLink(QUICK_MESSAGE)}
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsAppLink
+            origen="hero"
+            message={QUICK_MESSAGE}
             className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3.5 text-sm text-foreground/90 transition-colors hover:border-brand/50 hover:text-brand"
           >
             Escribirnos directo
-          </a>
+          </WhatsAppLink>
         </div>
 
         <p className="mt-4 text-xs text-muted sm:text-sm">
