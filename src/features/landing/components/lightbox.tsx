@@ -3,33 +3,32 @@
 import { useEffect } from 'react'
 import Image from 'next/image'
 import { useLightbox } from '../lib/lightbox-context'
+import { useFocusTrap } from '../lib/use-focus-trap'
 import { SERVICIOS } from '../lib/data'
 
 export function Lightbox() {
   const { servicioId, close } = useLightbox()
   const servicio = servicioId ? SERVICIOS.find((s) => s.id === servicioId) : null
+  const containerRef = useFocusTrap(!!servicio, close)
 
   useEffect(() => {
     if (!servicio) return
     document.body.style.overflow = 'hidden'
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') close()
-    }
-    window.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = ''
-      window.removeEventListener('keydown', onKey)
     }
-  }, [servicio, close])
+  }, [servicio])
 
   if (!servicio) return null
 
   return (
     <div
+      ref={containerRef}
       className="fixed inset-0 z-[60] flex items-center justify-center bg-background/90 p-4 backdrop-blur-sm"
       onClick={close}
       role="dialog"
       aria-modal="true"
+      aria-labelledby="lightbox-title"
     >
       <button
         onClick={close}
@@ -48,7 +47,7 @@ export function Lightbox() {
         </div>
         <div className="flex flex-col gap-3 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h3 className="font-display text-xl font-semibold">{servicio.nombre}</h3>
+            <h3 id="lightbox-title" className="font-display text-xl font-semibold">{servicio.nombre}</h3>
             <p className="mt-1 text-sm text-muted">{servicio.detalle}</p>
           </div>
           <a

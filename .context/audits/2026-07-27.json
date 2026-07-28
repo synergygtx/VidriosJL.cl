@@ -1,0 +1,8 @@
+{
+  "date": "2026-07-27",
+  "composite": 90,
+  "dimensions": { "seguridad": 98, "datos": 100, "cache": 97, "web": 57 },
+  "findings": { "critical": 0, "high": 2, "medium": 5, "low": 5 },
+  "coverage": { "owasp": "10/10", "threatdb_run": "14/14", "rls_tables": "N/A - sin base de datos" },
+  "deep_layer": { "ran": false, "resilience_score": null }
+}

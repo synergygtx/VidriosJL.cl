@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { buildWhatsAppLink, QUICK_MESSAGE } from '../lib/whatsapp'
 import { SERVICIOS } from '../lib/data'
 import { useLightbox } from '../lib/lightbox-context'
+import { useFocusTrap } from '../lib/use-focus-trap'
 import { IconMenu, IconX } from './icons'
 
 export function Navbar() {
@@ -12,6 +13,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const { openServicio } = useLightbox()
+  const mobileMenuRef = useFocusTrap(mobileOpen, () => setMobileOpen(false))
 
   useEffect(() => {
     if (!open) return
@@ -32,13 +34,8 @@ export function Navbar() {
   useEffect(() => {
     if (!mobileOpen) return
     document.body.style.overflow = 'hidden'
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMobileOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = ''
-      window.removeEventListener('keydown', onKey)
     }
   }, [mobileOpen])
 
@@ -119,7 +116,13 @@ export function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
+        <div
+          ref={mobileMenuRef}
+          className="fixed inset-0 z-50 md:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menú"
+        >
           <div
             className="absolute inset-0 bg-background/80 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
