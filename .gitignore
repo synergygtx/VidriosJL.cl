@@ -15,6 +15,8 @@ pnpm-lock.yaml
 /out/
 *.rsc
 *.tsbuildinfo
+# Autogenerado por Next: su contenido cambia entre `dev` y `build`.
+next-env.d.ts
 
 # Production
 /build
@@ -69,3 +71,4 @@ supabase/.temp
 # Forge — commit .forge/manifest.json (forge update needs it), ignore backups
 .forge/backups/
 .env*
+!.env.example
