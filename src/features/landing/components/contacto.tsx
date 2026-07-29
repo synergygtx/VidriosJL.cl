@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { IconFacebook, IconInstagram, IconPin, IconWhatsApp } from './icons'
+import { IconFacebook, IconInstagram, IconMail, IconPin, IconWhatsApp } from './icons'
 import { QUICK_MESSAGE } from '../lib/whatsapp'
 import { WhatsAppLink } from './whatsapp-link'
 
@@ -25,7 +25,14 @@ export function Contacto() {
               <IconWhatsApp className="h-4 w-4" />
               +56 9 5670 9205
             </WhatsAppLink>
-            <div className="mt-3 flex items-center gap-2 text-sm text-muted">
+            <a
+              href="mailto:contacto@vidriosjl.cl"
+              className="mt-2 flex items-center gap-2 text-sm text-muted transition-colors hover:text-brand"
+            >
+              <IconMail className="h-4 w-4 shrink-0" />
+              contacto@vidriosjl.cl
+            </a>
+            <div className="mt-2 flex items-center gap-2 text-sm text-muted">
               <IconPin className="h-4 w-4 shrink-0" />
               Santiago y alrededores, hasta 2 horas de la ciudad
             </div>

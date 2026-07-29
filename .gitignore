@@ -44,6 +44,9 @@ yarn-error.log*
 # Vercel
 .vercel
 
+# Playwright MCP (screenshots/logs de sesiones de revision)
+.playwright-mcp/
+
 # IDE
 .vscode
 .idea

@@ -115,18 +115,36 @@ export function IconX({ className }: IconProps) {
 
 export function IconInstagram({ className }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+    <svg className={className} viewBox="0 0 24 24">
+      <defs>
+        <linearGradient id="ig-gradient" x1="0" y1="24" x2="24" y2="0">
+          <stop offset="0%" stopColor="#FFDC80" />
+          <stop offset="35%" stopColor="#F56040" />
+          <stop offset="65%" stopColor="#C13584" />
+          <stop offset="100%" stopColor="#405DE6" />
+        </linearGradient>
+      </defs>
+      <rect x="3" y="3" width="18" height="18" rx="5" fill="url(#ig-gradient)" />
+      <circle cx="12" cy="12" r="4" fill="none" stroke="#fff" strokeWidth={1.5} />
+      <circle cx="17.2" cy="6.8" r="1.1" fill="#fff" />
     </svg>
   )
 }
 
 export function IconFacebook({ className }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.9.2-1.5 1.5-1.5H16.5V4.2A20 20 0 0 0 14.2 4c-2.3 0-3.9 1.4-3.9 4v2.5H8v3h2.3V21h3.2Z" />
+    <svg className={className} viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="12" fill="#1877F2" />
+      <path fill="#fff" d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.9.2-1.5 1.5-1.5H16.5V4.2A20 20 0 0 0 14.2 4c-2.3 0-3.9 1.4-3.9 4v2.5H8v3h2.3V21h3.2Z" />
+    </svg>
+  )
+}
+
+export function IconMail({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m4 7 8 6 8-6" />
     </svg>
   )
 }

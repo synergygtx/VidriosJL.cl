@@ -12,6 +12,7 @@ const business = {
   logo: `${SITE_URL}/logo.svg`,
   image: `${SITE_URL}/opengraph-image.jpg`,
   telephone: '+56956709205',
+  email: 'contacto@vidriosjl.cl',
   priceRange: '$$',
   areaServed: {
     '@type': 'City',
