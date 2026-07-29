@@ -2,8 +2,9 @@
 /node_modules
 /.pnp
 .pnp.js
+# package-lock.json SI se versiona (builds reproducibles en Vercel).
+# Los lockfiles de otros gestores se ignoran para no mezclar package managers.
 yarn.lock
-package-lock.json
 pnpm-lock.yaml
 
 # Testing
