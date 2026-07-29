@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { buildWhatsAppLink, QUICK_MESSAGE } from '../lib/whatsapp'
+import { QUICK_MESSAGE } from '../lib/whatsapp'
 import { SERVICIOS } from '../lib/data'
 import { useLightbox } from '../lib/lightbox-context'
 import { useFocusTrap } from '../lib/use-focus-trap'
 import { IconMenu, IconX } from './icons'
+import { WhatsAppLink } from './whatsapp-link'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
@@ -95,14 +96,13 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={buildWhatsAppLink(QUICK_MESSAGE)}
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsAppLink
+            origen="navbar"
+            message={QUICK_MESSAGE}
             className="rounded-full bg-gold-metal px-4 py-2 text-sm font-semibold text-background transition-transform hover:scale-105 active:scale-95 sm:px-5"
           >
             Cotizar
-          </a>
+          </WhatsAppLink>
 
           <button
             onClick={() => setMobileOpen(true)}

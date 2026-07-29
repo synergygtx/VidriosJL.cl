@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { IconFacebook, IconInstagram, IconPin, IconWhatsApp } from './icons'
-import { buildWhatsAppLink, QUICK_MESSAGE } from '../lib/whatsapp'
+import { QUICK_MESSAGE } from '../lib/whatsapp'
+import { WhatsAppLink } from './whatsapp-link'
 
 export function Contacto() {
   return (
@@ -16,15 +17,14 @@ export function Contacto() {
 
           <div>
             <h3 className="text-sm font-semibold text-foreground/90">Contacto</h3>
-            <a
-              href={buildWhatsAppLink(QUICK_MESSAGE)}
-              target="_blank"
-              rel="noopener noreferrer"
+            <WhatsAppLink
+              origen="footer"
+              message={QUICK_MESSAGE}
               className="mt-3 flex items-center gap-2 text-sm text-muted transition-colors hover:text-brand"
             >
               <IconWhatsApp className="h-4 w-4" />
               +56 9 5670 9205
-            </a>
+            </WhatsAppLink>
             <div className="mt-3 flex items-center gap-2 text-sm text-muted">
               <IconPin className="h-4 w-4 shrink-0" />
               Santiago y alrededores, hasta 2 horas de la ciudad

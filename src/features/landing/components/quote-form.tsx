@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { trackWhatsAppClick } from '@/shared/lib/analytics'
 import { buildQuoteMessage, buildWhatsAppLink } from '../lib/whatsapp'
 
 const TIPOS = ['Parabrisas', 'Luneta', 'Aleta', 'Vidrio de puerta', 'Lateral']
@@ -16,6 +17,7 @@ export function QuoteForm() {
     e.preventDefault()
     const message = buildQuoteMessage({ nombre, tipo, modelo, anio, direccion })
 
+    trackWhatsAppClick('formulario')
     window.location.href = buildWhatsAppLink(message)
   }
 

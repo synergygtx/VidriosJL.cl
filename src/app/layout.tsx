@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Bricolage_Grotesque, DM_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { GoogleAnalytics } from '@/shared/components/google-analytics'
 import './globals.css'
 
 const display = Bricolage_Grotesque({
@@ -12,6 +13,8 @@ const sans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-sans',
 })
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 
 const SITE_URL = 'https://vidriosjl.cl'
 const TITLE = 'VidriosJL — Cambio de parabrisas a domicilio en Santiago'
@@ -67,6 +70,7 @@ export default function RootLayout({
       <body className="font-sans">
         {children}
         <Analytics />
+        {GA_ID ? <GoogleAnalytics gaId={GA_ID} /> : null}
       </body>
     </html>
   )
