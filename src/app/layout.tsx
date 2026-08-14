@@ -15,6 +15,7 @@ const sans = DM_Sans({
 })
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
+const ADS_ID = process.env.NEXT_PUBLIC_ADS_ID
 
 const SITE_URL = 'https://vidriosjl.cl'
 const TITLE = 'VidriosJL — Cambio de parabrisas a domicilio en Santiago'
@@ -70,7 +71,7 @@ export default function RootLayout({
       <body className="font-sans">
         {children}
         <Analytics />
-        {GA_ID ? <GoogleAnalytics gaId={GA_ID} /> : null}
+        {GA_ID ? <GoogleAnalytics gaId={GA_ID} adsId={ADS_ID} /> : null}
       </body>
     </html>
   )
