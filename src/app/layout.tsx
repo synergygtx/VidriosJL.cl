@@ -17,7 +17,7 @@ const sans = DM_Sans({
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 const ADS_ID = process.env.NEXT_PUBLIC_ADS_ID
 
-const SITE_URL = 'https://vidriosjl.cl'
+const SITE_URL = 'https://www.vidriosjl.cl'
 const TITLE = 'VidriosJL — Cambio de parabrisas a domicilio en Santiago'
 const DESCRIPTION =
   'Cambio de parabrisas, lunetas y vidrios automotrices a domicilio en Santiago y alrededores. Sin taller, sin trámites: cotiza por WhatsApp en segundos.'

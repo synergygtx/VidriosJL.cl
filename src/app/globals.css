@@ -18,6 +18,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Compensa el header fijo de 65px para que las anclas (destinos de los
+     vinculos a sitio de Ads) no queden bajo la barra al llegar. */
+  scroll-padding-top: 5rem;
 }
 
 body {

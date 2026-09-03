@@ -1,6 +1,6 @@
 import { PREGUNTAS, RESENAS } from '../lib/data'
 
-const SITE_URL = 'https://vidriosjl.cl'
+const SITE_URL = 'https://www.vidriosjl.cl'
 
 const business = {
   '@context': 'https://schema.org',

@@ -18,7 +18,7 @@ const PASOS = [
 
 export function ComoFunciona() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <section id="como-funciona" className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <h2 className="font-display text-3xl font-semibold sm:text-4xl">Cómo funciona</h2>
 
       <div className="mt-10 grid gap-8 sm:grid-cols-3">

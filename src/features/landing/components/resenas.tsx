@@ -3,7 +3,7 @@ import { RESENAS } from '../lib/data'
 
 export function Resenas() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
+    <section id="resenas" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="max-w-xl">
           <h2 className="font-display text-3xl font-semibold sm:text-4xl">

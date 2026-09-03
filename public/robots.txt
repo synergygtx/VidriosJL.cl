@@ -19,4 +19,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://vidriosjl.cl/sitemap.xml
+Sitemap: https://www.vidriosjl.cl/sitemap.xml
