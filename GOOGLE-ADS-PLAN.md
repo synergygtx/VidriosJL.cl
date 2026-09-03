@@ -1,11 +1,30 @@
 # Plan de Campañas — Google Ads · VidriosJL
 
-> Estado: listo para construir. No depende de la verificación del Perfil de
-> Empresa ([GOOGLE-BUSINESS-PROFILE.md](GOOGLE-BUSINESS-PROFILE.md)) salvo por
-> el activo de ubicación, que se agrega después.
+> **Estado al 2026-08-13: campaña creada y DETENIDA, lista para activar.**
 >
-> Cuenta de conversión: el sitio ya dispara `generate_lead` en cada clic a
-> WhatsApp ([analytics.ts](src/shared/lib/analytics.ts)).
+> Campaña `Parabrisas Santiago` · ID `24140246107` · cuenta `895-325-7001`
+>
+> | Elemento | Estado |
+> |---|---|
+> | 1 grupo de anuncios, 24 palabras clave (frase + exacta) | ✅ |
+> | 1 anuncio: 15 títulos, 4 descripciones, sin fijar nada | ✅ |
+> | URL `https://www.vidriosjl.cl` · ruta `parabrisas/a-domicilio` | ✅ |
+> | 4 vínculos a sitios · 6 textos destacados · fragmento "Servicios" | ✅ |
+> | 52 palabras negativas a nivel de campaña | ✅ |
+> | Recurso de llamada `9 5670 9205` | ✅ (ya existía) |
+> | Red de Display y socios de búsqueda | ✅ apagadas |
+> | Ubicación en "Presencia", no "Presencia o interés" | ✅ |
+> | IA Max | ✅ desactivado |
+> | Presupuesto CLP 13.296/día · tope CPC CLP 900 | ✅ |
+> | Objetivos de conversión específicos, con la fuente Sitio web incluida | ✅ |
+> | **Activar la campaña** | ⬜ pendiente |
+>
+> Las otras 7 campañas de la cuenta quedaron en "Quitado" y no gastan.
+> El activo de ubicación sigue esperando la verificación del Perfil de Empresa
+> ([GOOGLE-BUSINESS-PROFILE.md](GOOGLE-BUSINESS-PROFILE.md)).
+>
+> Conversión: el sitio dispara `generate_lead` (GA4) y `conversion` (Ads) en
+> cada clic a WhatsApp ([analytics.ts](src/shared/lib/analytics.ts)).
 
 ---
 
@@ -80,6 +99,21 @@ Campaña: **`Búsqueda · Parabrisas · Santiago`**
 
 G2 es el grupo de mayor valor: quien busca "parabrisas a domicilio" ya
 descartó ir a un taller. Menos volumen, mucho mejor conversión.
+
+### Decisión de lanzamiento (2026-08-13): arrancar con UN solo grupo
+
+Se lanza con **un grupo único que fusiona G1 + G2 + G3** (todo lo que es
+parabrisas de auto). G4 y camiones quedan fuera hasta tener datos.
+
+Motivo: es la primera campaña del cliente y hay que poder gestionarla. Los
+grupos **no reparten el presupuesto** — solo mejoran la relevancia anuncio ↔
+búsqueda. El costo de fusionar es un Quality Score algo menor; el beneficio es
+que se lanza esta semana y los datos llegan concentrados en vez de repartidos.
+
+Se divide cuando el informe de términos de búsqueda muestre qué intención
+convierte de verdad. G4 (lunetas, laterales) solo cuando tenga su propio
+anuncio: mandar una búsqueda de luneta a un anuncio de parabrisas es pagar por
+un clic que no calza.
 
 ---
 
@@ -212,7 +246,18 @@ Precio al Tiro por WhatsApp
 No Rayamos Tu Carrocería
 ```
 
-**Fijar en la posición 1** el título que calce con el grupo:
+**En el grupo único de lanzamiento: no fijar ningún título.** Con tres
+intenciones mezcladas en un mismo grupo, fijar es contraproducente — se quiere
+justo lo contrario, que Google elija `¿Parabrisas Trizado?` cuando la búsqueda
+sea de urgencia y `Parabrisas a Domicilio` cuando sea del diferenciador. Eso es
+para lo que existe el anuncio adaptable.
+
+También en el grupo único se cambia `Lunetas y Vidrios Laterales` por
+`Todas las Marcas y Modelos`: ese grupo no tiene palabras clave de luneta, así
+que el título gasta un espacio sin traer nada.
+
+Cuando la campaña se divida en G1–G4, ahí sí conviene **fijar en la posición 1**
+el título que calce con cada grupo:
 - G1 → `Cambio de Parabrisas`
 - G2 → `Parabrisas a Domicilio`
 - G3 → `¿Parabrisas Trizado?`
@@ -229,9 +274,56 @@ Garantía por filtración e instalación. Cuidamos la carrocería en cada cambio
 Dinos modelo, año y comuna por WhatsApp y te confirmamos el precio al tiro.
 ```
 
+### Mejoras pendientes — aplicar SOLO cuando el anuncio esté aprobado
+
+**No editar mientras diga "En proceso de revisión": cada edición reinicia el
+reloj de la revisión y retrasa la salida al aire.** Cuando el estado pase a
+"Aprobado", aplicar las tres cosas **en una sola edición** para pasar por
+revisión una vez.
+
+Contexto: la "Calidad del anuncio" marca *Promedio*. Esa métrica es de Google y
+**no afecta el Ad Rank ni el costo** — lo que decide el costo es el Nivel de
+Calidad. Aun así las tres sugerencias son razonables por sí solas.
+
+**1. Descripciones — solo 1 de 4 dice "parabrisas".** Reemplazar por:
+```
+Cambiamos tu parabrisas en tu casa o trabajo, el mismo día. Cotiza por WhatsApp.
+No manejes con el parabrisas roto. Vamos donde estés en Santiago y alrededores.
+Cambio de parabrisas con garantía por filtración e instalación. No rayamos tu auto.
+Dinos tu modelo, año y comuna por WhatsApp y te cotizamos el parabrisas al tiro.
+```
+Google pone en negrita las coincidencias con la búsqueda; más negrita, más clics.
+
+**2. Títulos — pasar de 4 a 7 con la palabra clave** (no más: si los 15 dicen lo
+mismo se cae el check "Utilice títulos únicos", hoy en verde):
+
+| Actual | Nuevo |
+|---|---|
+| Sin Ir a un Taller | Parabrisas Sin Ir al Taller |
+| Instalamos el Mismo Día | Parabrisas el Mismo Día |
+| No Manejes con Vidrio Roto | No Manejes con Parabrisas Roto |
+
+**3. Dos vínculos a sitio más (4 → 6).** ✅ **Código listo (2026-09-02)** — las
+secciones `Resenas` y `ComoFunciona` ya tienen `id`. Falta desplegar y crear:
+
+| Texto | Destino |
+|---|---|
+| Opiniones de clientes | `https://www.vidriosjl.cl/#resenas` |
+| Cómo funciona | `https://www.vidriosjl.cl/#como-funciona` |
+
+No apuntar dos vínculos nuevos a URLs ya usadas solo para llegar a 6.
+
 ### URL
-Final: `https://vidriosjl.cl/`
+Final: `https://www.vidriosjl.cl/`
 Ruta visible: `vidriosjl.cl/parabrisas/a-domicilio`
+
+**Con `www`, no el apex.** `vidriosjl.cl` responde 308 y redirige a `www`, que
+es el dominio que sirve el sitio en Vercel. Poner el apex en el anuncio agrega
+un salto de redirección que Google cuenta contra la experiencia de destino.
+✅ **Alineado (2026-09-02):** `layout.tsx`, `sitemap.ts`, `json-ld.tsx` y
+`robots.txt` declaran `www`. Además se agregó `scroll-padding-top` en
+`globals.css`: el header es fijo (65px) y sin eso toda ancla —los 6 vínculos a
+sitio incluidos— aterrizaba con el título tapado por la barra.
 
 El copy de los anuncios repite el del hero a propósito ("El cambio de parabrisas
 que llega a tu puerta", "No conduzcas con tu vidrio roto"). Que el anuncio y la
@@ -304,6 +396,26 @@ Máximo por clic = máximo por lead × tasa de conversión del sitio
 
 Con esos tres datos —ticket, margen y tasa de cierre— queda definido el CPC
 máximo y el presupuesto diario deja de ser un número al azar.
+
+### Lo que quedó cargado (2026-08-13)
+
+| Parámetro | Valor | De dónde salió |
+|---|---|---|
+| Presupuesto diario | **CLP 13.296** | Valor recomendado por Google; decisión del cliente |
+| Límite de CPC máximo | **CLP 900** | ~1,5× el CPC promedio que estima Google (CLP 585) |
+| Estimación semanal | 159 clics · CLP 93.072 | Previsión de Google con esa configuración |
+
+**El tope de CPC bajó de CLP 700 a CLP 900 respecto de la recomendación
+inicial.** La cifra de 700 salía de los rangos bajos del Planificador de
+Palabras Clave. Con la campaña ya armada, Google estima un CPC promedio de
+CLP 585 para *este* conjunto de palabras clave y segmentación — un tope de 700
+habría quedado apenas por encima del promedio y habría dejado fuera justo las
+búsquedas más competidas, que son las de urgencia ("parabrisas trizado"), o
+sea las que más convierten. Un tope ~1,5× el promedio recorta solo la cola
+cara sin matar el volumen.
+
+CLP 93.072/semana ≈ CLP 399.000/mes, dentro del rango de CLP 200.000–500.000
+que definió el cliente.
 
 ---
 
